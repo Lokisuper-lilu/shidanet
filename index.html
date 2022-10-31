@@ -1,0 +1,101 @@
+<html lang="ch">
+<head>
+    <meta charset="UTF-8">
+    <title>复刻校园网</title>
+    <link href="basic/mycss.css" type="text/css" rel="stylesheet">
+    <link href="basic/bootstrap.min.css" rel="stylesheet">
+    <link href="basic/font-awesome.min.css" rel="stylesheet">
+    <link type="images/x-icon" rel="icon" href="statics/images/favicon.ico">
+    <link rel="icon" href="statics/images/favicon.ico" type="image/x-icon">
+    <script src="statics/js/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#login").click(function () {
+                $.post("php/function.php", {
+                    username: $("#username").val(),
+                    password: $("#password").val()
+                }, function (booleans) {
+                    if (booleans == "0") {
+                        alert("用户名或密码错误");
+                        document.getElementById("password").value = "";
+                    } else {
+                        alert("登录成功");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="navbar navbar-static-top nav-portal">
+    <div class="container">
+        <div class="navbar-header">
+            <img src="logo.png" class="img-responsive logo" alt="logo">
+        </div>
+    </div>
+</div>
+<div class="container login">
+    <div class="row">
+        <div class="col-md-6 col-sm-6 hidden-xs notice">
+            <div class="col-md-offset-1 col-md-10 notice-ie">
+                <div class="notice-heading">
+                    <h2 class="notice-heading">公告</h2>
+                    <h3 id="notice-title">测试公告</h3>
+                    <p id="notice-context">复刻校园网的开发测试
+                        <br>本页面仅供测试使用
+                        <br>并非真正的校园网登录界面
+                        <br>请勿在此输入真实的账号密码
+                        <br>否则因此造成的账号密码泄露后果自行承担
+                    </p>
+                </div>
+            </div>
+            <div class="pull-right middle-right">
+                <img src="/statics/images/middle.png" class="middle" alt="">
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-12 login-ie">
+            <div class="col-md-12">
+                <h2 class="form-heading">网络准入认证系统</h2>
+                <form class="form-horizontal login-form" id="login-form" action="#" method="post">
+                    <input type="hidden" name="ac_id" id="ac_id" value="">
+                    <input type="hidden" name="user_ip" id="user_ip" value="18.111.190.138">
+                    <input type="hidden" name="nas_ip" id="nas_ip" value="">
+                    <input type="hidden" name="user_mac" id="user_mac" value="">
+                    <input type="hidden" name="url" id="url" value="">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user fa-2x"></i>
+                            </div>
+                            <input aria-label="" type="text" name="username" id="username" class="form-control"
+                                   placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-lock fa-2x"></i>
+                            </div>
+                            <input aria-label="" type="password" name="password" id="password" class="form-control"
+                                   placeholder="请输入密码">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4">
+                            <button class="btn btn-block btn-primary" id="login" type="button">登录
+                            </button>
+                        </div>
+                        <div class="col-md-4 col-xs-4">
+                            <button class="btn btn-block btn-danger" id="logout-dm" type="button">注销</button>
+                        </div>
+                    </div>
+                </form>
+                <div id="out-qrcode" class="hidden" style="margin-top: 50px;"></div>
+            </div>
+            <div class="col-md-12">
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

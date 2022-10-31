@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>???</title>
+    <script src="statics/js/jquery-3.6.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#2b").click(function () {
+                $.post("php/test.php", {
+                        name: "菜鸟教程",
+                        url: "http://www.runoob.com"
+                    },
+                    function (data, status) {
+                        alert("数据: \n" + data + "\n状态: " + status);
+                    });
+            });
+        });
+    </script>
+</head>
+</head>
+<body>
+<div id="sb">
+    <button id="2b">发送一个 HTTP POST 请求页面并获取返回内容</button>
+</div>
+</body>
+</html>

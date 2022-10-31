@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="6af986bf-bce7-4839-84b9-aa706d256fe3" name="云服务器" url="http://101.43.173.16">
+        <fileTransfer rootFolder="/home/ubuntu" accessType="SFTP" host="101.43.173.16" port="22" sshConfigId="a691d413-a77b-42ba-836d-0222ea21db9d" sshConfig="ubuntu@101.43.173.16:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
