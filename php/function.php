@@ -15,19 +15,24 @@ if ($coon->connect_error) {
     die("Connection failed: " . $coon->connect_error);
 }
 //get data
-$sql = "SELECT password FROM `Info` where username='$username'";
+$sql = "SELECT password,moneycount FROM `Info` where username='$username'";
 //get result
 $result = $coon->query($sql);
-if ($result->num_rows > 0 && $result->num_rows < 2) {
+if ($result->num_rows == 1) {
     while ($row = $result->fetch_assoc()) {
         if ($row["password"] == $password) {
             echo "1";
+            echo "," . $row["moneycount"];
         } else {
+            echo "0";
+            echo ",";
             echo "0";
         }
     }
 } else {
-    echo 0;
+    echo "0";
+    echo ",";
+    echo "0";
 }
 // 关闭连接
 $coon->close();

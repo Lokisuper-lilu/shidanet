@@ -18,8 +18,10 @@ $result = $coon->query($sql);
 //输出数据
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-        echo "username:".$row["username"] . "<br>";
-        echo "password:".$row["password"] . "<br>";}
+        echo "username:" . $row["username"] . "\n";
+        echo "password:" . $row["password"] . "\n";
+        echo "moneycout:" . $row["moneycount"] ."\n";
+    }
 }
 // 关闭连接
 $coon->close();
